@@ -1,0 +1,13 @@
+{
+  "apiVersion": "1.0.0",
+  "apis": [
+    {
+      "path": "http://localhost:8000/listings/places",
+      "description": "Operations about places"
+    }
+  ],
+  "info": {
+    "title": "ws-app",
+    "description": "Application centrale de consommation des services REST et SOAP."
+  }
+}
