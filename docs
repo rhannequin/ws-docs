@@ -4,6 +4,14 @@
     {
       "path": "http://localhost:8000/listings/places",
       "description": "Operations about places"
+    },
+    {
+      "path": "http://localhost:8000/listings/towns",
+      "description": "Operations about towns"
+    },
+    {
+      "path": "http://localhost:8000/listings/countries",
+      "description": "Operations about countries"
     }
   ],
   "info": {

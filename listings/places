@@ -115,6 +115,86 @@
           ]
         }
       ]
+    },
+    {
+      "path": "/places/{id}/comments",
+      "operations": [
+        {
+          "method": "GET",
+          "summary": "Find comments by place ID",
+          "notes": "Returns comments based on place ID",
+          "type": "Place",
+          "nickname": "getCommentsByPlaceId",
+          "authorizations": {},
+          "parameters": [
+            {
+              "name": "id",
+              "description": "ID of place that needs to be fetched",
+              "required": true,
+              "type": "integer",
+              "format": "int64",
+              "paramType": "path",
+              "minimum": "1.0",
+              "maximum": "100000.0"
+            }
+          ],
+          "responseMessages": [
+            {
+              "code": 400,
+              "message": "Invalid ID supplied"
+            },
+            {
+              "code": 404,
+              "message": "Place not found"
+            }
+          ]
+        }
+      ]
+    },{
+      "path": "/places/{id}/comments",
+      "operations": [
+        {
+          "method": "POST",
+          "summary": "Add a new comment to a place",
+          "notes": "",
+          "type": "void",
+          "nickname": "addCommentToPlace",
+          "consumes": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "autorh": "comment[author]",
+              "description": "Author of the comment",
+              "required": true,
+              "type": "string",
+              "paramType": "string"
+            },
+            {
+              "name": "comment[mark]",
+              "description": "Mark",
+              "required": true,
+              "type": "int",
+              "paramType": "int",
+              "minimum": "0",
+              "maximum": "10"
+            },
+            {
+              "name": "comment[text]",
+              "description": "Comment",
+              "required": true,
+              "type": "string",
+              "paramType": "body"
+            }
+          ],
+          "responseMessages": [
+            {
+              "code": 405,
+              "message": "Invalid input"
+            }
+          ]
+        }
+      ]
     }
   ]
 }

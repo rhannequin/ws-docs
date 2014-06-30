@@ -1,0 +1,106 @@
+{
+  "apiVersion": "1.0.0",
+  "swaggerVersion": "1.2",
+  "basePath": "http://localhost:5000",
+  "resourcePath": "/towns",
+  "produces": [
+    "application/json"
+  ],
+  "apis": [
+    {
+      "path": "/towns",
+      "operations": [
+        {
+          "method": "GET",
+          "summary": "Get list of towns",
+          "notes": "",
+          "type": "void",
+          "nickname": "getAllTowns",
+          "consumes": [
+            "application/json"
+          ],
+          "responseMessages": []
+        }
+      ]
+    },
+    {
+      "path": "/towns",
+      "operations": [
+        {
+          "method": "POST",
+          "summary": "Add a new town",
+          "notes": "",
+          "type": "void",
+          "nickname": "addTown",
+          "consumes": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "name": "town[name]",
+              "description": "Name of the town",
+              "required": true,
+              "type": "string",
+              "paramType": "string"
+            },
+            {
+              "name": "town[population]",
+              "description": "Number of people of the town",
+              "required": true,
+              "type": "int",
+              "paramType": "int"
+            },
+            {
+              "name": "town[country_id]",
+              "description": "ID of the country it belongs to",
+              "required": true,
+              "type": "int",
+              "paramType": "in"
+            }
+          ],
+          "responseMessages": [
+            {
+              "code": 405,
+              "message": "Invalid input"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "/towns/{id}",
+      "operations": [
+        {
+          "method": "GET",
+          "summary": "Find town by ID",
+          "notes": "Returns a town based on ID",
+          "type": "Place",
+          "nickname": "getByTownId",
+          "authorizations": {},
+          "parameters": [
+            {
+              "name": "id",
+              "description": "ID of town that needs to be fetched",
+              "required": true,
+              "type": "integer",
+              "format": "int64",
+              "paramType": "path",
+              "minimum": "1.0",
+              "maximum": "100000.0"
+            }
+          ],
+          "responseMessages": [
+            {
+              "code": 400,
+              "message": "Invalid ID supplied"
+            },
+            {
+              "code": 404,
+              "message": "Place not found"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,106 @@
+{
+  "apiVersion": "1.0.0",
+  "swaggerVersion": "1.2",
+  "basePath": "http://localhost:5000",
+  "resourcePath": "/countries",
+  "produces": [
+    "application/json"
+  ],
+  "apis": [
+    {
+      "path": "/countries",
+      "operations": [
+        {
+          "method": "GET",
+          "summary": "Get list of countries",
+          "notes": "",
+          "type": "void",
+          "nickname": "getAllCountries",
+          "consumes": [
+            "application/json"
+          ],
+          "responseMessages": []
+        }
+      ]
+    },
+    {
+      "path": "/countries",
+      "operations": [
+        {
+          "method": "POST",
+          "summary": "Add a new country",
+          "notes": "",
+          "type": "void",
+          "nickname": "addCountry",
+          "consumes": [
+            "application/json"
+          ],
+          "parameters": [
+            {
+              "name": "country[name]",
+              "description": "Name of the country",
+              "required": true,
+              "type": "string",
+              "paramType": "string"
+            },
+            {
+              "name": "country[population]",
+              "description": "Number of people of the country",
+              "required": true,
+              "type": "int",
+              "paramType": "int"
+            },
+            {
+              "name": "country[country_id]",
+              "description": "ID of the country it belongs to",
+              "required": true,
+              "type": "int",
+              "paramType": "in"
+            }
+          ],
+          "responseMessages": [
+            {
+              "code": 405,
+              "message": "Invalid input"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "path": "/countries/{id}",
+      "operations": [
+        {
+          "method": "GET",
+          "summary": "Find country by ID",
+          "notes": "Returns a country based on ID",
+          "type": "Place",
+          "nickname": "getByCountryId",
+          "authorizations": {},
+          "parameters": [
+            {
+              "name": "id",
+              "description": "ID of country that needs to be fetched",
+              "required": true,
+              "type": "integer",
+              "format": "int64",
+              "paramType": "path",
+              "minimum": "1.0",
+              "maximum": "100000.0"
+            }
+          ],
+          "responseMessages": [
+            {
+              "code": 400,
+              "message": "Invalid ID supplied"
+            },
+            {
+              "code": 404,
+              "message": "Place not found"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
